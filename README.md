@@ -74,15 +74,32 @@ Decoração: picos/montanhas do logo usados como divisórias (`svg.linha-picos`,
 - O formulário é estático: após o envio, ele mostra o botão
   **“Enviar pelo WhatsApp”** com o resumo preenchido.
 
-## Antes de publicar
+## Publicação
 
-1. Confirmar o domínio (hoje os links canônicos/OG usam
-   `https://ddesites.github.io/casa-das-tendas/`) e ajustar em todos os `.html`,
-   `robots.txt` e `sitemap.xml`.
-2. Subir a pasta inteira para o hospedador (Hostinger, Netlify, Vercel, ou
-   qualquer Apache/Nginx — não precisa de PHP/node).
-3. Testar o formulário e os links de WhatsApp em celular.
-4. Enviar o `sitemap.xml` no Google Search Console.
+- **Site no ar:** https://ddesites.github.io/casa-das-tendas/
+- **Repositório:** https://github.com/DDESites/casa-das-tendas
+- **Hospedagem:** GitHub Pages (branch `main`, pasta raiz) — todo `git push`
+  na `main` rebuilda e republica o site automaticamente.
+
+### Como publicar uma alteração
+
+```powershell
+git add -A
+git commit -m "descrição da mudança"
+git push
+# o Pages sozinho recompila em ~1 minuto
+```
+
+### Quando um domínio próprio for comprado (ex.: casadastendasbsb.com.br)
+
+1. Crie um arquivo `CNAME` na raiz contendo apenas o domínio
+   (ex: `www.casadastendasbsb.com.br`) e faça push.
+2. Aponte o DNS do domínio: `A` para `185.199.108.153` (e
+   `.109.153`, `.110.153`, `.111.153`) ou `CNAME` para `ddesites.github.io`.
+3. Substitua `https://ddesites.github.io/casa-das-tendas/` pelo domínio nos
+   `.html` (canonical, og:url, og:image, JSON-LD), em `robots.txt` e
+   `sitemap.xml`.
+4. Envie o `sitemap.xml` no Google Search Console.
 
 ## Acessibilidade e SEO
 
